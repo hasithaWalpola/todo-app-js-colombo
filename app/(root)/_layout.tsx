@@ -9,17 +9,17 @@ export default function Layout() {
         AsyncStorage.getItem('hasSeenOnboarding').then(value => {
             console.log(value, 'value');
 
-            setInitialRoute(value === 'true' ? '/(root)/(tabs)' : '/screens/onboard');
+            setInitialRoute(value === 'true' ? '(root)' : 'onboard');
         });
     }, []);
 
-    if (!initialRoute) {
+    if (initialRoute === 'onboard') {
         return <Redirect href="/screens/onboard" />;
     }
 
     return (
         <Stack>
-            <Stack.Screen name="/(root)/(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="(root)" options={{ headerShown: false }} />
         </Stack>
     );
 }
