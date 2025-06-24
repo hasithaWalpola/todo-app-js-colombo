@@ -9,7 +9,7 @@ export default function Layout() {
         AsyncStorage.getItem('hasSeenOnboarding').then(value => {
             console.log(value, 'value');
 
-            setInitialRoute(value === 'true' ? '(root)' : 'onboard');
+            setInitialRoute(value === 'true' ? '(tabs)' : 'onboard');
         });
     }, []);
 
@@ -18,8 +18,8 @@ export default function Layout() {
     }
 
     return (
-        <Stack>
-            <Stack.Screen name="(root)" options={{ headerShown: false }} />
+        <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
     );
 }
